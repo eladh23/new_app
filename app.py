@@ -7,7 +7,8 @@ app.register_blueprint(news_blueprint)
 @app.route("/") 
 def main_page() :
     print("hello world")
-    return "<p> this is the MY MAIN PAGE</p>"
+    news_arr = ["war in gaza", "eurovision start in 10" , "messi in israel" ]
+    return render_template("main.html", news_arr = news_arr)
 
 @app.route("/news") 
 def news() :
@@ -17,12 +18,12 @@ def news() :
 @app.route("/sports") 
 def sports() :
     print("hello world")
-    return "<p> this is the SPORTS</p>"
+    return render_template("sports.html")
 
 @app.route("/weather") 
 def weather() :
     print("hello world")
-    return "<p> this is the WEATHER</p>"
+    return render_template("weather.html")
 
 if __name__ == '__main__':
     app.run(debug=True, port=9000)
